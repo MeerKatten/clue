@@ -17,9 +17,39 @@
       font-size: 36px;
       text-align: center;
     }
+    
+    #answerInput {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    #revealText {
+      color: white;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
   </style>
+  <script>
+    function checkAnswer() {
+      var userInput = document.getElementById("answerInput").value.toLowerCase();
+      var correctAnswers = ["answer1", "answer2", "answer3"]; // Replace with an array of your correct answers
+      var revealText = document.getElementById("revealText");
+
+      if (correctAnswers.includes(userInput)) {
+        revealText.style.display = "block";
+      } else {
+        revealText.style.display = "none";
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>Your Phrase Goes Here</h1>
+  <h1>What has keys but can't open locks?</h1>
+  <input type="text" id="answerInput" placeholder="Enter your answer">
+  <button onclick="checkAnswer()">Submit</button>
+  <p id="revealText">The answer is a piano!</p>
 </body>
 </html>
